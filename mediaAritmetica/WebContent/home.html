@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	
+	<title>Insert title here</title>
+	
+	<style>
+		.dados{
+			width: 300px; height: 110px;background-color: #D3D3D3; border-radius: 2%; border-style: solid;
+			margin-top: 10%; 
+			margin-left: 40%;
+		}
+		h1{
+			margin-left: 42%;
+		}
+		label{
+			margin-left: 10%;
+		}
+		input {
+			margin-left: 10px;
+			margin-top: 5%;
+		}
+		button {
+			margin-left: 65%;
+			margin-top: 15%;
+			
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Média Aritmética</h1>
+	<div class = "dados">
+	
+		<form action="Controle" method="get">
+			<input type="hidden" name="acao" value="mediaAritmetica">
+		    <div class="campos">
+		        <label>Valor A:</label>
+		        <input type="number" name="valorA" /><br>
+		        <label>Valor B:</label>
+		        <input type="number" name="valorB" />
+		    </div>
+		    <button type="submit">Calcular</button>
+		</form>
+	</div>
+
+</body>
+</html>
