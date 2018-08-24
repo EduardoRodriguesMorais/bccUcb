@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>Resultado</title>
+	</h:head>
+	<h:body>
+		<h:h1>Resultado</h:h1>
+		<h:outputText value="Aluno: #{alunoMB.aluno.nome}" /><br/>	
+		<h:outputText value="Nota 1: #{alunoMB.aluno.nota1}" /><br/>	
+		<h:outputText value="Nota 2: #{alunoMB.aluno.nota2}" /><br/>
+		<h:outputText value="Situação: #{alunoMB.aluno.verificaSituacao()}" /><br/>		
+	</h:body>
+</html>
