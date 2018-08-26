@@ -19,8 +19,19 @@ public class AlunoMB implements Serializable{
 		this.aluno = new Aluno();
 	}
 	
-	public String verificaSituacao() {
+	public String verificaAprovacao() {
 		this.aluno.setMedia();
 		return "visao";
 	}
+
+	
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	
+	
 }
