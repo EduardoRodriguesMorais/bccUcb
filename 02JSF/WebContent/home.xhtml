@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>Entrada</title>
+	</h:head>
+	<h:body>
+		<h1>Eleição 2018</h1>
+		<h:panelGrid border="1" columns="3" >
+		
+			<h:outputText value="Candidato"/>
+			<h:outputText value="Partido"/>
+			<h:outputText value="Votos"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato1.nome}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato1.partido}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato1.qtdVotos}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato2.nome}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato2.partido}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato2.qtdVotos}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato3.nome}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato3.partido}"/>
+			<h:outputText value="#{eleicaoMB.eleicao.candidato3.qtdVotos}"/>
+		</h:panelGrid>
+		
+		<h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/>
+		
+		<h:form>
+			<h:commandButton value="Juir Bolsanato" action="#{eleicaoMB.votaCandidato}"> <f:param value = "1" name="voto" /></h:commandButton>
+			<h:commandButton value="Gerardo Aiquimedo" action="#{eleicaoMB.votaCandidato}"> <f:param value = "2" name="voto" /></h:commandButton>
+			<h:commandButton value="Luiz Quinegócio Molusco da Selva" action="#{eleicaoMB.votaCandidato}"> <f:param value = "3" name="voto" /></h:commandButton>
+		</h:form>
+	</h:body>
+</html>
