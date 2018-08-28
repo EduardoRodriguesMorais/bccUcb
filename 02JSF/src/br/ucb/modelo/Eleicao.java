@@ -20,15 +20,17 @@ public class Eleicao implements Serializable{
 		this.addCandidato(candidato3);
 	}
 	
-	public void verificaApuracao() {
+	public Candidato verificaApuracao() {
+		Candidato aux = new Candidato();
 		int maisVotos = 0;
 		for(Candidato c : this.candidatos) {
+			c.setPorcentagemVotos((c.getQtdVotos()*100)/this.getQtdVotos());
 			if(c.getQtdVotos() > maisVotos) {
 				maisVotos = c.getQtdVotos();
-				
+				aux = c;
 			}
 		}
-		
+		return aux;	
 	}
 	
 	public int getQtdVotos() {

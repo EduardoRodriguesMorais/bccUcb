@@ -1,32 +1,70 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
-		<title>Entrada</title>
+		<title>Eleições</title>
+	
 	</h:head>
 	<h:body>
-		<h1>Eleição 2018</h1>
-		<h:panelGrid border="1" columns="3" >
+		<h1>Eleições 2018</h1>
+		<div style="margin: 5%;margin-left: 10%">
+			<h:panelGrid border="3" columns="4" style="border-collapse: collapse; width: 100%">
+				<h:outputText value="Foto"/>
+				<h:outputText value="Candidato"/>
+				<h:outputText value="Partido"/>
+				<h:outputText value="Votos"/>
+				<h:graphicImage style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% " value="/Imgs/bolsonaro.jpeg"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato1.nome}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato1.partido}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato1.qtdVotos}"/>
+				<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/Alckmin.jpg"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato2.nome}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato2.partido}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato2.qtdVotos}"/>
+				<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/lula.jpg"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato3.nome}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato3.partido}"/>
+				<h:outputText value="#{eleicaoMB.eleicao.candidato3.qtdVotos}"/>
+			</h:panelGrid>
+		</div>
+			<hr/>
+			<div style="margin: 1%;margin-left: 40%">
+				<strong><h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/></strong>
+			</div>
+			<hr/>
+		<div style="margin: 3%;margin-left: 10%">
 		
-			<h:outputText value="Candidato"/>
-			<h:outputText value="Partido"/>
-			<h:outputText value="Votos"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato1.nome}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato1.partido}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato1.qtdVotos}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato2.nome}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato2.partido}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato2.qtdVotos}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato3.nome}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato3.partido}"/>
-			<h:outputText value="#{eleicaoMB.eleicao.candidato3.qtdVotos}"/>
-		</h:panelGrid>
+			<h:form>
+				<div style="float: left;margin: 10px;margin-right:20%">
+				 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
+						<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 80px; height: 150px; border:3px solid black;"/> 
+						<f:param value = "1" name="voto"/> 
+				 	</h:commandLink>
+				 	<p>Juir Bolsanato</p>
+				</div> 	
+				 
+				<div style="float: left;margin: 10px;margin-right:20%">
+				 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
+						<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
+						<f:param value = "2" name="voto"/> 
+				 	</h:commandLink>
+				 	<p>Gerardo Aiquimedo</p>
+				 </div>	
+				 <div style="margin: 10px; margin-right:10%">
+					 <h:commandLink action="#{eleicaoMB.votaCandidato}">
+						<h:graphicImage value="/Imgs/lula.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
+						<f:param value = "3" name="voto"/> 
+				 	</h:commandLink>
+					<p>Luiz Quinegócio Molusco da Selva</p>	
+				 </div>	
+			
+				<div style="margin: 5%">
+					<h:commandButton style="width:80%; background: #FF6347	 ; border: 1px solid black;" value="Finalizar eleições" action="#{eleicaoMB.finalizaEleicao}"/>
+				</div>
+			
+			</h:form>
 		
-		<h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/>
+		</div>
 		
-		<h:form>
-			<h:commandButton value="Juir Bolsanato" action="#{eleicaoMB.votaCandidato}"> <f:param value = "1" name="voto" /></h:commandButton>
-			<h:commandButton value="Gerardo Aiquimedo" action="#{eleicaoMB.votaCandidato}"> <f:param value = "2" name="voto" /></h:commandButton>
-			<h:commandButton value="Luiz Quinegócio Molusco da Selva" action="#{eleicaoMB.votaCandidato}"> <f:param value = "3" name="voto" /></h:commandButton>
-		</h:form>
+		
 	</h:body>
 </html>

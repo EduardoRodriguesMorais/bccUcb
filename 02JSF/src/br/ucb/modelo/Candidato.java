@@ -7,6 +7,7 @@ public class Candidato implements Serializable{
 	private String nome;
 	private String partido; 
 	private int qtdVotos;
+	private float porcentagemVotos;
 	
 	public Candidato() {
 		
@@ -17,6 +18,16 @@ public class Candidato implements Serializable{
 		this.setPartido(partido);
 	}
 	
+	
+	
+	public float getPorcentagemVotos() {
+		return porcentagemVotos;
+	}
+
+	public void setPorcentagemVotos(float porcentagemVotos) {
+		this.porcentagemVotos = porcentagemVotos;
+	}
+
 	public String getNome() {
 		return nome;
 	}
