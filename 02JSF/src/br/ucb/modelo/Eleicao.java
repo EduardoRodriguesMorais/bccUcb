@@ -3,6 +3,7 @@ package br.ucb.modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public class Eleicao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int qtdVotos;
@@ -21,17 +22,43 @@ public class Eleicao implements Serializable{
 	}
 	
 	public Candidato verificaApuracao() {
-		Candidato aux = new Candidato();
-		int maisVotos = 0;
 		for(Candidato c : this.candidatos) {
 			c.setPorcentagemVotos((c.getQtdVotos()*100)/this.getQtdVotos());
-			if(c.getQtdVotos() > maisVotos) {
-				maisVotos = c.getQtdVotos();
-				aux = c;
-			}
 		}
-		return aux;	
+		bubbleSort(this.candidatos);
+		return this.candidatos.get(0);
 	}
+	
+	public void bubbleSort(ArrayList<Candidato> candidatos) {
+		Candidato aux = new Candidato();
+		for(int i = 0; i<candidatos.size()-1;i++) {
+			for(int j = 1; j<candidatos.size() ;j++) {
+				if(candidatos.get(j-1).getQtdVotos() < candidatos.get(j).getQtdVotos()) {
+					aux = candidatos.get(j-1);
+					candidatos.set(j-1, candidatos.get(j)) ;
+					candidatos.set(j,aux);
+				}
+			}
+		}	
+	}
+	
+	
+	public void votar(int voto) {
+	    this.addVoto();
+		switch (voto) {
+			case 1:
+				this.getCandidato1().addVoto();
+				break;
+			case 2:
+				this.getCandidato2().addVoto();
+				break;
+			case 3:
+				this.getCandidato3().addVoto();
+				break;
+		}
+	}
+
+	
 	
 	public int getQtdVotos() {
 		return qtdVotos;

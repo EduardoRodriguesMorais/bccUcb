@@ -5,66 +5,47 @@
 	
 	</h:head>
 	<h:body>
-		<h1>Eleições 2018</h1>
-		<div style="margin: 5%;margin-left: 10%">
-			<h:panelGrid border="3" columns="4" style="border-collapse: collapse; width: 100%">
-				<h:outputText value="Foto"/>
-				<h:outputText value="Candidato"/>
-				<h:outputText value="Partido"/>
-				<h:outputText value="Votos"/>
-				<h:graphicImage style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% " value="/Imgs/bolsonaro.jpeg"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato1.nome}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato1.partido}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato1.qtdVotos}"/>
-				<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/Alckmin.jpg"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato2.nome}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato2.partido}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato2.qtdVotos}"/>
-				<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/lula.jpg"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato3.nome}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato3.partido}"/>
-				<h:outputText value="#{eleicaoMB.eleicao.candidato3.qtdVotos}"/>
-			</h:panelGrid>
-		</div>
-			<hr/>
-			<div style="margin: 1%;margin-left: 40%">
-				<strong><h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/></strong>
+		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5% ">
+			<h1 style="margin: 3%">Eleições 2018</h1>
+			<div style="margin: 5%;margin-left: 10%">
+				<h:panelGrid border="3" columns="4" style="border-collapse: collapse; width: 100%">
+					<h:outputText value="Foto"/>
+					<h:outputText value="Candidato"/>
+					<h:outputText value="Partido"/>
+					<h:outputText value="Votos"/>
+					<h:graphicImage style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% " value="/Imgs/bolsonaro.jpeg"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato1.nome}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato1.partido}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato1.qtdVotos}"/>
+					<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/Alckmin.jpg"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato2.nome}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato2.partido}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato2.qtdVotos}"/>
+					<h:graphicImage style="width: 50px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20%" value="/Imgs/lula.jpg"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato3.nome}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato3.partido}"/>
+					<h:outputText value="#{eleicaoMB.eleicao.candidato3.qtdVotos}"/>
+				</h:panelGrid>
 			</div>
-			<hr/>
-		<div style="margin: 3%;margin-left: 10%">
-		
-			<h:form>
-				<div style="float: left;margin: 10px;margin-right:20%">
-				 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
-						<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 80px; height: 150px; border:3px solid black;"/> 
-						<f:param value = "1" name="voto"/> 
-				 	</h:commandLink>
-				 	<p>Juir Bolsanato</p>
-				</div> 	
-				 
-				<div style="float: left;margin: 10px;margin-right:20%">
-				 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
-						<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
-						<f:param value = "2" name="voto"/> 
-				 	</h:commandLink>
-				 	<p>Gerardo Aiquimedo</p>
-				 </div>	
-				 <div style="margin: 10px; margin-right:10%">
-					 <h:commandLink action="#{eleicaoMB.votaCandidato}">
-						<h:graphicImage value="/Imgs/lula.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
-						<f:param value = "3" name="voto"/> 
-				 	</h:commandLink>
-					<p>Luiz Quinegócio Molusco da Selva</p>	
-				 </div>	
-			
-				<div style="margin: 5%">
-					<h:commandButton style="width:80%; background: #FF6347	 ; border: 1px solid black;" value="Finalizar eleições" action="#{eleicaoMB.finalizaEleicao}"/>
+				<hr/>
+				<div style="margin: 1%;margin-left: 40%">
+					<strong><h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/></strong>			
 				</div>
+				<hr/>
+			<div style="margin: 3%;margin-left: 10%">
+				<h:form>
+					<div style="margin: 5%">
+						<h:commandButton style="width:80%; background: green	 ; border: 1px solid black;" value="Novo Voto" action="#{eleicaoMB.iniciarNovoVoto}"/>
+					</div>
+				
+					<div style="margin: 5%">
+						<h:commandButton style="width:80%; background: #FF6347	 ; border: 1px solid black;" value="Finalizar eleições" action="#{eleicaoMB.finalizaEleicao}"/>
+					</div>
+				
+				</h:form>
 			
-			</h:form>
-		
-		</div>
-		
-		
+			</div>
+			
+		</div>		
 	</h:body>
 </html>

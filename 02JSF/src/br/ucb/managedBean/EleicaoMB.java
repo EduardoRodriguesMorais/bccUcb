@@ -27,28 +27,20 @@ public class EleicaoMB implements Serializable{
 	public String finalizaEleicao() {
 		this.vencedor = new Candidato();
 		this.vencedor = this.eleicao.verificaApuracao();
+		
 		return "final";
 	}
 	
 	public String votaCandidato() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 	    Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-	    this.voto =  Integer.parseInt(params.get("voto")); 
-	    this.eleicao.addVoto();
-		switch (this.voto) {
-			case 1:
-				this.eleicao.getCandidato1().addVoto();
-				break;
-			case 2:
-				this.eleicao.getCandidato2().addVoto();
-				break;
-			case 3:
-				this.eleicao.getCandidato3().addVoto();
-				break;
-		}
+	    this.eleicao.votar(Integer.parseInt(params.get("voto"))); 
 		return "home";
 	}
 
+	public String iniciarNovoVoto() {
+		return "votar";
+	}
 	
 	
 	
