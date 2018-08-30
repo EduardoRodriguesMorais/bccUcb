@@ -2,48 +2,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<h:head>
 		<title>Eleições</title>
-	
 	</h:head>
 	<h:body>
-		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5% ">
-			<h2 style="margin-left: 3%">Vencedor: <h:outputText  value = "#{eleicaoMB.vencedor.nome}"/></h2>
-			
-			
-			
-			<c:choose>
-				<c:when test="#{eleicaoMB.vencedor.nome eq 'Juir Bolsanato'}">
-					<div style="float: left;margin: 10px;margin-left:20%">
-						<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 80px; height: 150px; border:3px solid black;"/><br/>
-					</div>	
-				</c:when>
-				<c:when test="#{eleicaoMB.vencedor.nome eq 'Gerardo Aiquimedo'}">
-					<div style="float: left;margin: 10px;margin-right:20%">
-						<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 80px; height: 150px; border:3px solid black;"/><br/>
-					</div>	
-				</c:when>
-				<c:when test="#{eleicaoMB.vencedor.nome eq 'Luiz Quinegócio Molusco da Selva'}">
-					<div style="float: left;margin-left: 40%; width: 100%">
-						<h:graphicImage value="/Imgs/lula.jpg" style="width: 80px; height: 150px; border:3px solid black;"/><br/>
-					</div>	
-				</c:when>
-			</c:choose>
-
-		
-			<c:forEach items="#{eleicaoMB.eleicao.candidatos}" var="cand">
-     			<h:outputText value="#{cand.nome}"/><br/>
-     			
-        	</c:forEach>
-			
+		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5%;background: #FFFAFA">
+			<h2 style="margin-left: 3%">Vencedor: <h:outputText  value = "#{eleicaoMB.vencedor.nome}"/></h2><hr/>
+			<div style="float: left;margin: 5%;margin-left: 45%; width: 100%">
+				<c:choose>
+					<c:when test="#{eleicaoMB.vencedor.nome eq 'Juir Bolsanato'}">
+							<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 130px; height: 200px; border:3px solid black;"/><br/>
+					</c:when>
+					<c:when test="#{eleicaoMB.vencedor.nome eq 'Gerardo Aiquimedo'}">
+							<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 130px; height: 200px; border:3px solid black;"/><br/>
+					</c:when>
+					<c:when test="#{eleicaoMB.vencedor.nome eq 'Luiz Quinegócio Molusco da Selva'}">
+							<h:graphicImage value="/Imgs/lula.jpg" style="width: 130px; height: 200px; border:3px solid black;"/><br/>
+					</c:when>
+				</c:choose>
+			</div>
+			<div style="margin: 5%">
+				<h:panelGrid border="3" columns="4" style="border-collapse: collapse; width: 100%;background:#F8F8FF">
+					<h:outputText value="Candidato"/>
+					<h:outputText value="Partido"/>
+					<h:outputText value="Votos"/>
+					<h:outputText value="(%)"/>
+					<c:forEach items="#{eleicaoMB.eleicao.candidatos}" var="cand" varStatus="loop">
+						<c:choose>
+							<c:when test="#{loop.index} == 0">
+								<h:outputText style="background: green " value="#{cand.nome}"/>
+								<h:outputText value="#{cand.partido}"/>
+								<h:outputText value="#{cand.qtdVotos}"/>
+								<h:outputText value="#{cand.porcentagemVotos}"/>
+							</c:when>
+							<c:otherwise>
+								<h:outputText value="#{cand.nome}"/>
+								<h:outputText value="#{cand.partido}"/>
+								<h:outputText value="#{cand.qtdVotos}"/>
+								<h:outputText value="#{cand.porcentagemVotos}"/>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</h:panelGrid>
+			</div>			
 			<div style="margin: 3%;margin-left: 10%">
 				<h:form>
-					
 					<div style="margin: 5%">
 						<h:commandButton style="width:85%; background:#D3D3D3 ; border: 1px solid black;" value="Voltar" action="home"/>
-					</div>
-					
+					</div>				
 				</h:form>
 			</div>
-			
 		</div>		
 	</h:body>
 </html>

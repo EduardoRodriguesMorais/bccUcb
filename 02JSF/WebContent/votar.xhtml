@@ -2,43 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<title>Eleições</title>
-	
 	</h:head>
 	<h:body>
-		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5% ">
-			<h2 style="margin-left: 35%">Escolha seu candidato</h2>
+		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5%;background: #FFFAFA">
+			<h2 style="margin-left: 40%">Escolha seu candidato</h2><hr/>
 			<div style="margin: 3%;margin-left: 10%">
 				<h:form>
-					<div style="float: left;margin: 10px;margin-right:20%">
+					<div style="width: 15%; height: 20%;float: left;margin: 5%;margin-left:15%">
 					 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
 							<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 80px; height: 150px; border:3px solid black;"/> 
 							<f:param value = "1" name="voto"/> 
 					 	</h:commandLink>
 					 	<p>#{eleicaoMB.eleicao.candidato1.nome}</p>
-					</div> 	
-					 
-					<div style="float: left;margin: 10px;margin-right:20%">
+					</div>
+					<div style="width: 15%; height: 20%;float: left;margin: 5%;">
 					 	<h:commandLink action="#{eleicaoMB.votaCandidato}">
 							<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
 							<f:param value = "2" name="voto"/> 
 					 	</h:commandLink>
 					 	<p>#{eleicaoMB.eleicao.candidato2.nome}</p>
 					 </div>	
-					 <div style="margin: 10px; margin-right:10%">
+					 <div style="width: 15%; height: 20%;float: left;margin:5%;">
 						 <h:commandLink action="#{eleicaoMB.votaCandidato}">
-							<h:graphicImage value="/Imgs/lula.jpg" style="width: 80px; height: 150px; border:3px solid black;"/> 
+							<h:graphicImage value="/Imgs/lula.jpg" style="margin-left:20%;width: 80px; height: 150px; border:3px solid black;"/> 
 							<f:param value = "3" name="voto"/> 
 					 	</h:commandLink>
 						<p>#{eleicaoMB.eleicao.candidato3.nome}</p>	
-					 </div>	
-					 
-					<div style="margin: 5%">
+					 </div>
+					<div style="margin: 5%;margin-left: 8%">
 						<h:commandButton style="width:85%; background:#D3D3D3 ; border: 1px solid black;" value="Cancelar" action="home"/>
 					</div>
-					
 				</h:form>
 			</div>
-			
 		</div>		
 	</h:body>
 </html>
