@@ -1,50 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
-		<title>Eleições</title>
+		<title>Entrada</title>
 	</h:head>
 	<h:body>
-		<div style="width: 90%; height: 95%; border:2px solid black;margin-left:5%;background: #FFFAFA">
-			<h1 style="margin: 1%">Eleições 2018</h1><hr/>
-			<div style="margin: 5%;margin-left: 10%;">
-				<h:panelGrid border="3" columns="4" style="border-collapse: collapse; width: 80%;margin-left:10%;background:#F8F8FF">
-					<h:outputText value="Foto"/>
-					<h:outputText value="Candidato"/>
-					<h:outputText value="Partido"/>
-					<h:outputText value="Votos"/>
-					<c:forEach items="#{eleicaoMB.eleicao.candidatos}" var="cand" varStatus="loop">
-						<c:choose>
-							<c:when test="#{cand.nome eq 'Juir Bolsanato'}">
-									<h:graphicImage value="/Imgs/bolsonaro.jpeg" style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% "/>
-							</c:when>
-							<c:when test="#{cand.nome eq 'Gerardo Aiquimedo'}">
-									<h:graphicImage value="/Imgs/Alckmin.jpg" style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% "/>
-							</c:when>
-							<c:when test="#{cand.nome eq 'Luiz Quinegócio Molusco da Selva'}">
-									<h:graphicImage value="/Imgs/lula.jpg" style="width: 60px; height: 50px; border:2px solid black; border-radius: 50%;margin-left: 20% "/>
-							</c:when>
-						</c:choose>
-						<h:outputText value="#{cand.nome}"/>
-						<h:outputText value="#{cand.partido}"/>
-						<h:outputText value="#{cand.qtdVotos}"/>
-					</c:forEach>
-				</h:panelGrid>
-			</div>
-				<hr/>
-				<div style="margin: 1%;margin-left: 45%">
-					<strong><h:outputText value="Total de votos: #{eleicaoMB.eleicao.qtdVotos}"/></strong>			
-				</div>
-				<hr/>
-			<div style="margin: 3%;margin-left: 20%">
-				<h:form>
-					<div style="margin: 5%">
-						<h:commandButton style="width:80%; background: green	 ; border: 1px solid black;" value="Novo Voto" action="#{eleicaoMB.iniciarNovoVoto}"/>
-					</div>
-					<div style="margin: 5%">
-						<h:commandButton style="width:80%; background: #FF6347	 ; border: 1px solid black;" value="Finalizar eleições" action="#{eleicaoMB.finalizaEleicao}"/>
-					</div>
-				</h:form>
-			</div>
-		</div>		
+		<h:form>
+			<h:outputLabel value="Nota 1" /><br/>
+			<h:inputText value="#{alunoMB.aluno.nota1}"/><p/>
+			<h:outputLabel value="Nota 2" /><br/>
+			<h:inputText value="#{alunoMB.aluno.nota2}"/><p/>
+			<h:commandButton value="OK" action="#{alunoMB.verificaAprovacao}" />
+		</h:form>
 	</h:body>
 </html>
