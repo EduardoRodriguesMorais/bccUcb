@@ -17,7 +17,9 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-
+//Objetivo: Le valores de uma variavel de acordo com o Modelo Simplex
+//Parametros: Uma string
+//Retorno: Valor em inteiro que essa string representa para o modelo
 int validaVariavel(char *str){
 	int i =0;
 	char vet[50];
@@ -33,12 +35,13 @@ int validaVariavel(char *str){
 		return atoi(vet);
 	}
 }
-
-
+//Objetivo: Ler um arquivo e validar
+//Parametros: Ponteiro para um arquivo
+//Retorno: Tue or False
 int validaArquivo(FILE* arq){
-    int i, qtdLinhas,qtdColunas;
+    int i, qtdLinhas=0,qtdColunas=0;
 	char str[100], ch ;
-	while( (fscanf(arq,"%s \n", &str))!=EOF && (ch=fgetc(arq))!= EOF)){
+	while( (fscanf(arq,"%s %c\n", &str,&ch))!=EOF){
 		if(ch == '\n'){
 			qtdLinhas ++;
 		}
@@ -48,7 +51,7 @@ int validaArquivo(FILE* arq){
 		printf("___%d____\n", i);		 	
 	}
 	
-	printf("QTD LINHAS: %d",qtdLinhas);
+	printf("QTD LINHAS: %d   ",qtdLinhas);
 
 	printf("QTD COLUNAS: %d",qtdColunas);
   	
